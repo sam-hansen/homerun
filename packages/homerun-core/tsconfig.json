@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "target": "ES2018",
+        "lib": ["ES2018", "DOM"],
+        "types": ["node"],
+        "rootDir": "src",
+        "outDir": "lib",
+        "esModuleInterop": true,
+        "resolveJsonModule": false,
+        "importHelpers": true
+    },
+    "exclude": ["node_modules", "lib"]
+}
