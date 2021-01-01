@@ -1,5 +1,5 @@
-import { getConfigPath } from "../path";
-import { slugify } from "../helpers";
+import { getConfigPath } from "../../paths";
+import { slugify } from "../../helpers";
 import { prompt } from "inquirer";
 import { dim, underline, green } from "chalk";
 import { error, success } from "../output";
@@ -41,7 +41,7 @@ function createConfig(): void {
         });
 }
 
-export default function handler(args: Array<String> = []): void {
+export default function handler(args: Array<string> = []): void {
     fs.access(
         getConfigPath(),
         fs.constants.R_OK && fs.constants.W_OK,

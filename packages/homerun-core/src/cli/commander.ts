@@ -9,6 +9,7 @@ const commands: Array<Command> = [
     { name: "create", aliases: ["create-package", "make", "new"] },
     { name: "remove", aliases: ["remove-package", "rm"] },
     { name: "init", aliases: [] },
+    { name: "config", aliases: ["cfg"] },
 ];
 
 /**

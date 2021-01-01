@@ -1,20 +1,20 @@
 import { bold, dim, italic, underline } from "chalk";
 import { error, success } from "../output";
 const fs = require("fs");
-import { getPackagePath } from "../path";
+import { getPackagePath } from "../../paths";
 
-function validateArguments(args: Array<String>): String {
+function validateArguments(args: Array<string>): string {
     if (!args[0]) {
         error("No package name provided");
         process.exit(1);
     }
 
     const name = args[0];
-    if (!name.match(/^[a-z0-9]*$/i)) {
+    if (!name.match(/^[a-z0-9 ]*$/i)) {
         error(
             `${underline(name)} contain invalid characters ${dim(
                 italic(
-                    "Only letter from a to Z and numbers from 0 to 9 are allowed"
+                    "Only letter from a to Z, numbers from 0 to 9 and spaces are allowed"
                 )
             )}`
         );
@@ -24,7 +24,7 @@ function validateArguments(args: Array<String>): String {
     return name;
 }
 
-export default function handler(args: Array<String> = []): void {
+export default function handler(args: Array<string> = []): void {
     const validated = validateArguments(args);
 
     fs.access(

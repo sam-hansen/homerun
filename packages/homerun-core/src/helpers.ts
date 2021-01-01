@@ -8,3 +8,7 @@ export function slugify(string: String, separator: string = "-") {
         .replace(/[^a-z0-9 ]/g, "")
         .replace(/\s+/g, separator);
 }
+
+export function modulify(obj: Object) {
+    return `module.exports = ${obj}`;
+}

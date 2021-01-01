@@ -1,7 +1,7 @@
 import { bold, cyan, dim, gray } from "chalk";
 import { version } from "../../../package.json";
 
-export default function handler(args: Array<String>): void {
+export default function handler(args: Array<string>): void {
     console.log(`
 ${dim("Options:")}
   • ${bold("create")} - Create a package
@@ -14,6 +14,8 @@ ${dim("Options:")}
   • ${bold("github")} - Open Twickd's GitHub
 
   • ${bold("init")} - Initialize your Homerun repository
+  • ${bold("config")} - Show your Homerun repository configuration
+        ${dim("(Aliases: cfg)")}
   • ${bold("publish")} - Publish your Homerun repository
     `);
 
