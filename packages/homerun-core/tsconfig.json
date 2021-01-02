@@ -6,6 +6,7 @@
         "lib": ["ES2018", "DOM"],
         "types": ["node"],
         "rootDir": "src",
+        "jsx": "react",
         "outDir": "lib",
         "esModuleInterop": true,
         "resolveJsonModule": false,

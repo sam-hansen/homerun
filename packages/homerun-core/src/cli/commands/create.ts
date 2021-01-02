@@ -52,9 +52,15 @@ export default function handler(args: Array<string> = []): void {
                 console.log(
                     dim(`   Path: ${underline(getPackagePath(validated))}`)
                 );
-                // Create the debs and screenshots path
+                // Create the paths
                 fs.mkdirSync(getPackageDebsPath(validated));
                 fs.mkdirSync(getPackageScreenshotsPath(validated));
+
+                // Create the files
+                fs.writeFileSync(
+                    `${getPackagePath(validated)}/depiction.mdx`,
+                    ""
+                );
 
                 // Ask for the details
                 prompt([
@@ -80,7 +86,10 @@ export default function handler(args: Array<string> = []): void {
                         const details = modulify(
                             inspect({
                                 ...answers,
-                                ...{ name: validated },
+                                ...{
+                                    name: validated,
+                                    slug: slugify(validated),
+                                },
                             })
                         );
                         fs.writeFile(

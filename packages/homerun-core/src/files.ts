@@ -1,10 +1,10 @@
-import { getConfigPath } from "./paths";
+import { getConfigPath, getHomerunPath } from "./paths";
+import { Config } from "./interfaces";
 
-export interface Config {
-    repo_name: string;
-    repo_url: string;
+export function getConfig(): Config {
+    return require(getConfigPath());
 }
 
-export function getConfig(): any {
-    return require(getConfigPath());
+export function getPJson(): object {
+    return require(getHomerunPath() + "/package.json");
 }
