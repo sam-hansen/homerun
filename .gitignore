@@ -17,3 +17,7 @@ yarn.lock
 
 # Tests
 my-homerun-app
+
+# Homerun-front testing
+packages/homerun-front/public/packages/*
+packages/homerun-front/homerun.config.js

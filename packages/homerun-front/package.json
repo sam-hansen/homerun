@@ -1,0 +1,36 @@
+{
+    "name": "homerun",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "scan-packages": "babel-node --config-file ./scripts/babel.config.js scripts/scan.js"
+    },
+    "dependencies": {
+        "next": "10.0.4",
+        "react": "17.0.1",
+        "react-dom": "17.0.1"
+    },
+    "peerDependencies": {
+        "@twickd/homerun": "^0.1.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/node": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
+        "@mdx-js/loader": "^1.6.22",
+        "@mdx-js/mdx": "^1.6.22",
+        "@next/mdx": "^10.0.4",
+        "@tailwindcss/typography": "^0.3.1",
+        "@types/node": "^14.14.17",
+        "@types/react": "^17.0.0",
+        "@types/webpack-env": "^1.16.0",
+        "autoprefixer": "^10.1.0",
+        "postcss": "^8.2.2",
+        "simple-functional-loader": "^1.2.1",
+        "tailwindcss": "^2.0.2",
+        "typescript": "^4.1.3"
+    }
+}
