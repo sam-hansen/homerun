@@ -9,6 +9,7 @@ yarn.lock
 
 # Logs
 *.logs
+*.log
 
 # Editor
 **/.idea
