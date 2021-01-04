@@ -1,10 +1,21 @@
 #!/usr/bin/env node
 import path from "path";
 import prompts from "prompts";
+import Commander from "commander";
 import { createApp } from "./create-app";
 import chalk from "chalk";
+import pJson from "./package.json";
 
 let projectPath: string = "";
+
+const program = new Commander.Command(pJson.name)
+	.version(pJson.version)
+	.arguments("<app-directory>")
+	.usage("<app-directory>")
+	.action((name) => {
+		projectPath = name;
+	})
+	.parse(process.argv);
 
 async function run(): Promise<void> {
 	if (typeof projectPath === "string") {
