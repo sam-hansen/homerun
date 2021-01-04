@@ -1,0 +1,15 @@
+# Build output
+dist
+
+# Dependencies
+node_modules
+package-lock.json
+yarn.lock
+!/yarn.lock
+
+# Logs
+*.logs
+
+# Editor
+**/.idea
+**/.#*
