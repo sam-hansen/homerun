@@ -13,3 +13,6 @@ yarn.lock
 # Editor
 **/.idea
 **/.#*
+
+# Tests
+my-homerun-app
