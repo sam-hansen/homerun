@@ -10,11 +10,12 @@ let projectPath: string = "";
 
 const program = new Commander.Command(pJson.name)
     .version(pJson.version)
-    .arguments("<app-directory>")
-    .usage("<app-directory>")
+    .arguments("[app-directory]")
+    .usage("[app-directory]")
     .action((name) => {
         projectPath = name;
     })
+    .allowUnknownOption()
     .parse(process.argv);
 
 async function run(): Promise<void> {

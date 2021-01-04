@@ -54,7 +54,7 @@ async function download(root: string): Promise<void> {
     return pipeline(
         got.stream("https://codeload.github.com/twickd/homerun/tar.gz/master"),
         tar.extract({ cwd: root, strip: 3 }, [
-            "homerun-master/packages/homerun-core",
+            "homerun-master/packages/homerun-front",
         ])
     );
 }
