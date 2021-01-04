@@ -1,15 +1,14 @@
 {
     "name": "@twickd/homerun",
     "version": "0.1.2",
-    "description": "",
-    "main": "lib/index.js",
+    "main": "./dist/index.js",
     "bin": {
-        "homerun": "./bin/cli.js"
+        "homerun": "./dist/cli/index.js"
     },
     "scripts": {
         "build": "npm run clean && tsc -p",
         "dev": "npm run clean && tsc -w",
-        "clean": "rm -rf ./lib",
+        "clean": "rm -rf ./dist",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "prettier": {
@@ -18,18 +17,23 @@
         "useTabs": false
     },
     "publishConfig": {
-        "acces": "public"
+        "acces": "public",
+        "directory": "dist"
     },
+    "files": [
+        "dist"
+    ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/twickd/homerun-core.git"
+        "url": "git+https://github.com/twickd/homerun.git",
+        "directory": "packages/homerun-core"
     },
     "author": "Hugo Ventura <hugo@twickd.com> (https://twickd.com)",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/twickd/homerun-core/issues"
+        "url": "https://github.com/twickd/homerun/issues"
     },
-    "homepage": "https://github.com/twickd/homerun-core#readme",
+    "homepage": "https://github.com/twickd/homerun#readme",
     "twickd": "https://github.com/twickd",
     "devDependencies": {
         "@types/node": "^14.14.16",

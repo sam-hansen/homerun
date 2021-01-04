@@ -7,10 +7,10 @@
         "types": ["node"],
         "rootDir": "src",
         "jsx": "react",
-        "outDir": "lib",
+        "outDir": "dist",
         "esModuleInterop": true,
         "resolveJsonModule": false,
         "importHelpers": true
     },
-    "exclude": ["node_modules", "lib"]
+    "exclude": ["node_modules", "dist"]
 }

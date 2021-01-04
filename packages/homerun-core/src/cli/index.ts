@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { runCommand } from "./commander";
 import { version } from "../../package.json";
 
