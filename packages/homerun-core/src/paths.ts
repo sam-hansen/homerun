@@ -1,15 +1,17 @@
 import { slugify } from "./helpers";
+import path from "path";
+import findUp from "find-up";
 
 export function getHomerunPath(): string {
-    return process.cwd();
+    return process.cwd() !== "/" ? process.cwd() : ".";
 }
 
 export function getPublicPath(): string {
-    return `${getHomerunPath()}/public`;
+    return findUp.sync("public", { cwd: getHomerunPath(), type: "directory" });
 }
 
 export function getConfigPath(): string {
-    return `${getHomerunPath()}/homerun.config.js`;
+    return findUp.sync("homerun.config.js", { cwd: getHomerunPath() });
 }
 
 export function getPackagesPath(): string {

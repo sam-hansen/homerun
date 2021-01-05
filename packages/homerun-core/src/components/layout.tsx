@@ -1,27 +1,30 @@
 import React from "react";
-import { getConfig, getPJson } from "../files";
-import { Config } from "../interfaces";
-
-function Footer() {
-    const config: Config = getConfig();
-    const pJson: any = getPJson();
+function Footer({ config }) {
     return (
-        <div className="border-t border-accent-3 py-8 mt-16 border-gray-500 border-opacity-10 container mx-auto">
-            <span>
-                <a href={config.repo_url} className="anchor">
-                    {config.repo_name}
-                </a>
-                • Powered by Homerun {pJson?.version}
-            </span>
+        <footer className="bg-accent-1 py-8">
+            <div className="container mx-auto">
+                <Credits config={config} />
+            </div>
+        </footer>
+    );
+}
+
+export function Credits({ config }): JSX.Element {
+    return (
+        <div className="flex flex-col">
+            <a href={config.repo_url} className="anchor">
+                {config.repo_name}
+            </a>
+            <span className="text-xs">Powered by Homerun</span>
         </div>
     );
 }
 
-export default function Layout({ children }) {
+export default function Layout({ children, config = {} }): JSX.Element {
     return (
         <div id="__homerun">
             {children}
-            <Footer />
+            <Footer config={config} />
         </div>
     );
 }

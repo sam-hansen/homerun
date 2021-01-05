@@ -6,5 +6,5 @@ export function getConfig(): Config {
 }
 
 export function getPJson(): object {
-    return require(getHomerunPath() + "/package.json");
+    return require(process.cwd() + "/package.json");
 }
