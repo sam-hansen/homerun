@@ -27,7 +27,7 @@ export default function Depiction({ pkg, config }: { pkg: Package; config: any }
 
             <div className="bg-accent-1 p-4 lg:py-8">
                 <div className="mx-auto max-w-sm space-y-8 sticky top-8 bottom-8">
-                    <figure className="w-32 h-32 rounded-2xl shadow-xl overflow-hidden mx-auto">
+                    <figure className="w-32 h-32 rounded-4xl shadow-xl overflow-hidden mx-auto">
                         <PackageIcon pkg={pkg} size={128} />
                     </figure>
                     <div>
@@ -37,15 +37,15 @@ export default function Depiction({ pkg, config }: { pkg: Package; config: any }
                     <div>
                         <h3 className="font-semibold text-2xl">Informations</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-sm mt-4 text-sm">
-                            <div className="flex flex-col px-4 py-2 border border-accent-3 md:col-span-2 rounded-lg group transition-colors hover:bg-foreground">
+                            <div className="flex flex-col px-4 py-2 border border-accent-3 md:col-span-2 rounded-xl group transition-colors hover:bg-foreground">
                                 <p className="text-xs uppercase tracking-wide font-semibold text-accent-5 transition-colors group-hover:text-accent-3">Name</p>
                                 <span className="text-accent-7 leading-relaxed transition-colors group-hover:text-background">{pkg.name}</span>
                             </div>
-                            <div className="flex flex-col px-4 py-2 border border-accent-3 rounded-lg group hover:bg-foreground transition-colors">
+                            <div className="flex flex-col px-4 py-2 border border-accent-3 rounded-xl group hover:bg-foreground transition-colors">
                                 <p className="text-xs uppercase tracking-wide font-semibold text-accent-5 transition-colors group-hover:text-accent-3">Bundle ID</p>
                                 <span className="text-accent-7 leading-relaxed transition-colors group-hover:text-background break-all">{pkg.bundle_id}</span>
                             </div>
-                            <div className="flex flex-col px-4 py-2 border border-accent-3 rounded-lg group hover:bg-foreground transition-colors">
+                            <div className="flex flex-col px-4 py-2 border border-accent-3 rounded-xl group hover:bg-foreground transition-colors">
                                 <p className="text-xs uppercase tracking-wide font-semibold text-accent-5 transition-colors group-hover:text-accent-3">Section</p>
                                 <span className="text-accent-7 leading-relaxed transition-colors group-hover:text-background">{pkg.section}</span>
                             </div>

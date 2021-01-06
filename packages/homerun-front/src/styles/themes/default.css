@@ -4,37 +4,37 @@
 
 */
 body {
-	--hr-background: #fff;
-	--hr-accent-1: #f7fafc;
-	--hr-accent-2: #edf2f7;
-	--hr-accent-3: #e2e8f0;
-	--hr-accent-4: #cbd5e0;
-	--hr-accent-5: #a0aec0;
-	--hr-accent-6: #718096;
-	--hr-accent-7: #4a5568;
-	--hr-accent-8: #2d3748;
-	--hr-accent-9: #1a202c;
-	--hr-foreground: #000;
+    --hr-background: #fff;
+    --hr-accent-1: #f7fafc;
+    --hr-accent-2: #edf2f7;
+    --hr-accent-3: #e2e8f0;
+    --hr-accent-4: #cbd5e0;
+    --hr-accent-5: #a0aec0;
+    --hr-accent-6: #718096;
+    --hr-accent-7: #4a5568;
+    --hr-accent-8: #2d3748;
+    --hr-accent-9: #1a202c;
+    --hr-foreground: #000;
 
-	color: var(--hr-accent-9);
-	background-color: var(--hr-background);
+    color: var(--hr-accent-9);
+    background-color: var(--hr-background);
 }
 
 body.dark {
-	--hr-background: #000;
-	--hr-accent-1: #1a202c;
-	--hr-accent-2: #2d3748;
-	--hr-accent-3: #4a5568;
-	--hr-accent-4: #718096;
-	--hr-accent-5: #a0aec0;
-	--hr-accent-6: #cbd5e0;
-	--hr-accent-7: #e2e8f0;
-	--hr-accent-8: #edf2f7;
-	--hr-accent-9: #f7fafc;
-	--hr-foreground: #fff;
+    --hr-background: #000;
+    --hr-accent-1: #1a202c;
+    --hr-accent-2: #2d3748;
+    --hr-accent-3: #4a5568;
+    --hr-accent-4: #718096;
+    --hr-accent-5: #a0aec0;
+    --hr-accent-6: #cbd5e0;
+    --hr-accent-7: #e2e8f0;
+    --hr-accent-8: #edf2f7;
+    --hr-accent-9: #f7fafc;
+    --hr-foreground: #fff;
 
-	color: var(--hr-foreground);
-	background-color: var(--hr-background);
+    color: var(--hr-foreground);
+    background-color: var(--hr-background);
 }
 
 /*
@@ -44,11 +44,28 @@ body.dark {
 */
 
 .anchor {
-	@apply font-semibold;
-	@apply transition-colors;
-	@apply duration-150;
+    @apply font-semibold;
+    @apply transition-colors;
+    @apply duration-150;
+    @apply text-sm;
+    @apply tracking-wide;
+    @apply uppercase;
 }
 
 .anchor:hover {
-	@apply text-primary;
+    @apply text-primary;
+}
+
+.button {
+    @apply transition-colors;
+    @apply duration-150;
+
+    @apply font-semibold;
+    @apply text-sm;
+    @apply uppercase;
+    @apply tracking-wide;
+
+    @apply py-3;
+    @apply px-6;
+    @apply rounded-xl;
 }
