@@ -9,10 +9,10 @@
         "scan-packages": "babel-node --config-file ./scripts/babel.config.js scripts/scan.js"
     },
     "dependencies": {
+        "@twickd/homerun": "0.1.2",
         "next": "10.0.4",
         "react": "17.0.1",
-        "react-dom": "17.0.1",
-        "@twickd/homerun": "0.1.2"
+        "react-dom": "17.0.1"
     },
     "devDependencies": {
         "@babel/core": "^7.12.10",
@@ -21,6 +21,7 @@
         "@mdx-js/loader": "^1.6.22",
         "@mdx-js/mdx": "^1.6.22",
         "@next/mdx": "^10.0.4",
+        "@tailwindcss/aspect-ratio": "^0.2.0",
         "@tailwindcss/typography": "^0.3.1",
         "@types/node": "^14.14.17",
         "@types/react": "^17.0.0",
