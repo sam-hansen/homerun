@@ -6,9 +6,10 @@
         "homerun": "./dist/cli/index.js"
     },
     "scripts": {
-        "build": "npm run clean && tsc -p",
+        "build": "npm run clean && npm run types && tsc -p",
         "dev": "npm run clean && tsc -w",
         "clean": "rm -rf ./dist",
+        "types": "tsc --declaration --emitDeclarationOnly --declarationDir dist",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "prettier": {

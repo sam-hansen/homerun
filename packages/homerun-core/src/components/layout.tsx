@@ -1,8 +1,8 @@
 import React from "react";
 function Footer({ config }) {
     return (
-        <footer className="bg-accent-1 py-8">
-            <div className="container mx-auto">
+        <footer className="bg-accent-1 py-8 md:hidden">
+            <div className="container mx-auto px-4">
                 <Credits config={config} />
             </div>
         </footer>
@@ -15,7 +15,7 @@ export function Credits({ config }): JSX.Element {
             <a href={config.repo_url} className="anchor">
                 {config.repo_name}
             </a>
-            <span className="text-xs">Powered by Homerun</span>
+            <span className="text-xs text-accent-5">Powered by Homerun</span>
         </div>
     );
 }
