@@ -59,7 +59,7 @@ export default function handler(args: Array<string> = []): void {
         fs.mkdirSync(getPackageScreenshotsPath(validated));
 
         // Create the files
-        fs.writeFileSync(`${getPackagePath(validated)}/depiction.mdx`, "");
+        fs.writeFileSync(`${getPackagePath(validated)}/depiction.mdx`, "*no description provided*");
     } catch (e) {
         error(`Could not create the files for this ${bold( validated )}. Please remove the package and try again`, true );
     }
