@@ -1,7 +1,7 @@
 import React from "react";
 function Footer({ config }) {
     return (
-        <footer className="bg-accent-1 py-8 md:hidden">
+        <footer className="py-8">
             <div className="container mx-auto px-4">
                 <Credits config={config} />
             </div>

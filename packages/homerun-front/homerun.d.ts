@@ -12,3 +12,4 @@ declare interface Package {
 }
 
 /// <reference types="@twickd/homerun" />
+declare module "@twickd/homerun/dist/hooks";

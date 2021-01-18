@@ -1,10 +1,12 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import config from "~/homerun.config";
 import PackagePreview from "@/components/packages/preview";
 import { getAllPackagePreview } from "@/getPackages";
+import { useConfig } from "@twickd/homerun/dist/hooks";
 
 function Featured({ packages }: { packages: Array<Package> }) {
+    const config = useConfig();
+
     return (
         <div className="mb-16 grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div>
@@ -52,6 +54,8 @@ interface Props {
 
 export default function Index({ packages, sections }: Props): JSX.Element {
     const featured = packages.filter((p) => p.featured);
+    const config = useConfig();
+
     return (
         <div>
             <Head>

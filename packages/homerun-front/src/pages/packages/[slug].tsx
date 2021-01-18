@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { getAllPackagePreview, getPackagePreview } from "@/getPackages";
 import dynamic from "next/dynamic";
-import config from "~/homerun.config";
+import { useConfig } from "@twickd/homerun/dist/hooks";
 import PackageIcon from "@/components/packages/icon";
 import PackageBanner from "@/components/packages/banner";
 import PackageScreenshots from "@/components/packages/screenshots";
@@ -11,6 +11,7 @@ export default function Depiction({ pkg }: { pkg: Package }): JSX.Element {
     const Mdx = dynamic(
         () => import(`~/public/packages/${pkg.slug}/depiction.mdx`)
     );
+    const config = useConfig();
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
             <Head>
