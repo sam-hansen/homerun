@@ -1,6 +1,10 @@
 import Image from "next/image";
 
-export default function PackageScreenshots({ pkg }: { pkg: Package }): JSX.Element {
+export default function PackageScreenshots({
+    pkg,
+}: {
+    pkg: Package;
+}): JSX.Element {
     return (
         <>
             {pkg.screenshots && pkg.screenshots.length > 0 && (
