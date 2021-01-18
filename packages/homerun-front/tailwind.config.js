@@ -1,5 +1,13 @@
+const plugin = require("tailwindcss/plugin");
+const _ = require("lodash");
+
 module.exports = {
-    purge: ["./src/pages/**/*.ts", "./src/pages/**/*.tsx", "./src/components/**/*.ts", "./src/components/**/*.tsx"],
+    purge: [
+        "./src/pages/**/*.ts",
+        "./src/pages/**/*.tsx",
+        "./src/components/**/*.ts",
+        "./src/components/**/*.tsx",
+    ],
     darkMode: "class", // or 'media' or 'class'
     theme: {
         colors: {
@@ -37,5 +45,20 @@ module.exports = {
             translate: ["group-hover"],
         },
     },
-    plugins: [require("@tailwindcss/typography"), require("@tailwindcss/aspect-ratio")],
+    plugins: [
+        require("@tailwindcss/typography"),
+        require("@tailwindcss/aspect-ratio"),
+        plugin(function ({ addUtilities, theme, variants, e }) {
+            const squareUtilities = _.map(theme("width"), (value, key) => {
+                return {
+                    [`.${e(`square-${key}`)}`]: {
+                        height: value,
+                        width: value,
+                    },
+                };
+            });
+
+            addUtilities(squareUtilities, variants("width"));
+        }),
+    ],
 };
