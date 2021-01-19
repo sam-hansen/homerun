@@ -37,7 +37,7 @@ export default function Depiction({ pkg }: { pkg: Package }): JSX.Element {
 
             <div className="bg-accent-1 p-4 lg:py-8">
                 <div className="mx-auto max-w-sm space-y-8 sticky top-8 bottom-8">
-                    <figure className="w-32 h-32 rounded-4xl shadow-xl overflow-hidden mx-auto">
+                    <figure className="square-32 rounded-4xl shadow-xl overflow-hidden mx-auto">
                         <PackageIcon pkg={pkg} size={128} />
                     </figure>
                     <div>

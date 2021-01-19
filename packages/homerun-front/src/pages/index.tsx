@@ -72,7 +72,10 @@ export default function Index({ packages, sections }: Props): JSX.Element {
             <div className="container mx-auto max-w-6xl px-4 xl:px-0">
                 {featured && <Featured packages={featured} />}
 
-                <section id="sections" className="flex flex-col space-y-16">
+                <section
+                    id="sections"
+                    className="flex flex-col space-y-16 my-16"
+                >
                     {sections.map((section, k) => {
                         const pkgs = packages.filter(
                             (p) => p.section === section
@@ -101,6 +104,14 @@ export default function Index({ packages, sections }: Props): JSX.Element {
                     })}
                 </section>
             </div>
+            <footer className="bg-accent-1 text-accent-5 text-sm py-8 px-4 flex justify-center">
+                <p>
+                    <span className="font-semibold text-accent-7">
+                        {config.repo_name}
+                    </span>{" "}
+                    - Powered by Homerun
+                </p>
+            </footer>
         </div>
     );
 }

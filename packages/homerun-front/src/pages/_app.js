@@ -6,11 +6,11 @@ import { ConfigProvider } from "@twickd/homerun/dist/hooks";
 
 function HomerunApp({ Component, pageProps }) {
     return (
-        <Layout config={config}>
-            <ConfigProvider config={config}>
+        <ConfigProvider config={config}>
+            <Layout>
                 <Component {...pageProps} />
-            </ConfigProvider>
-        </Layout>
+            </Layout>
+        </ConfigProvider>
     );
 }
 export default HomerunApp;
