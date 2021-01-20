@@ -69,3 +69,44 @@ body.dark {
     @apply px-6;
     @apply rounded-xl;
 }
+
+/*
+
+    CUSTOM COMPONENTS
+
+*/
+#depiction_changelog .changelog_container {
+    position: relative;
+    padding-left: 3rem;
+    @apply transition-opacity;
+}
+#depiction_changelog .changelog_container::before {
+    position: absolute;
+    content: "";
+    top: 2rem;
+    bottom: 0.5rem;
+    border-radius: 0.125rem;
+    left: 0.375rem;
+    width: 0.25rem;
+    background-color: theme("colors.accent.2");
+}
+#depiction_changelog .changelog_container::after {
+    position: absolute;
+    content: "";
+    top: 0.5rem;
+    left: 0;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.75rem;
+    background-color: theme("colors.accent.5");
+    @apply transition-colors;
+}
+#depiction_changelog .changelog_container:hover::after {
+    background-color: theme("colors.primary.DEFAULT");
+}
+#depiction_changelog:hover .changelog_container {
+    opacity: 0.5;
+}
+#depiction_changelog:hover .changelog_container:hover {
+    opacity: 1;
+}

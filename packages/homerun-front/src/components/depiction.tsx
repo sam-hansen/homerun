@@ -18,7 +18,7 @@ export function DepictionBody({ pkg }: { pkg: Package }): JSX.Element {
 
 export function DepictionChangelog({ pkg }: { pkg: Package }): JSX.Element {
     return (
-        <div className="grid gap-8">
+        <div className="grid gap-8 my-8" id="depiction_changelog">
             {pkg.changelogs.map(({ number, file }, key) => {
                 if (file) {
                     const ChangelogComponent = dynamic(
@@ -28,7 +28,7 @@ export function DepictionChangelog({ pkg }: { pkg: Package }): JSX.Element {
                             )
                     );
                     return (
-                        <div className="" key={key}>
+                        <div className="changelog_container" key={key}>
                             <div className="text-2xl font-bold">{number}</div>
                             <div className="prose lg:prose-lg">
                                 <ChangelogComponent />
