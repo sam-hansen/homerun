@@ -3,7 +3,7 @@ import glob from "glob";
 
 function importAllPreview(r) {
     return r.keys().map((fileName) => {
-        let screenshots, debs, icon, banner;
+        let screenshots, debs, icon, banner, changelogs;
         const root = `./public/packages/${fileName.split("/")[1]}`;
         //prettier-ignore
         try {
@@ -11,6 +11,10 @@ function importAllPreview(r) {
             debs = glob.sync(`${root}/debs/*.deb`).map((f) => f.substr(root.length + 1)) || [];
             icon = glob.sync(`${root}/icon.+(png|jpg|jpeg)`).map((f) => f.substr(root.length + 1))[0] || null;
             banner = glob.sync(`${root}/banner.+(png|jpg|jpeg)`).map((f) => f.substr(root.length + 1))[0] || null;
+            changelogs = glob.sync(`${root}/changelogs/*.+(md|mdx)`).map((f) => ({
+                number: f.split('/').pop().replace(/\.mdx?$/, ''),
+                file: f.substr(root.length + 1)
+            })).sort((a, b) => -1) || [];
         } catch (e) {}
         return {
             ...r(fileName),
@@ -18,6 +22,7 @@ function importAllPreview(r) {
             debs: debs,
             icon: icon,
             banner: banner,
+            changelogs: changelogs,
         };
     });
 }
