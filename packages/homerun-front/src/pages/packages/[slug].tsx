@@ -1,17 +1,25 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { getAllPackagePreview, getPackagePreview } from "@/getPackages";
-import dynamic from "next/dynamic";
 import { useConfig } from "@twickd/homerun/dist/hooks";
 import PackageIcon from "@/components/packages/icon";
 import PackageBanner from "@/components/packages/banner";
-import PackageScreenshots from "@/components/packages/screenshots";
+import { useCallback, useState } from "react";
+import {
+    DepictionBody,
+    DepictionChangelog,
+    DepictionInfos,
+} from "@/components/depiction";
 
 export default function Depiction({ pkg }: { pkg: Package }): JSX.Element {
-    const Mdx = dynamic(
-        () => import(`~/public/packages/${pkg.slug}/depiction.mdx`)
-    );
+    const [active, setActive] = useState(false);
+
     const config = useConfig();
+
+    const toggleView = useCallback(() => {
+        setActive((state) => !state);
+    }, [active]);
+
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
             <Head>
@@ -28,10 +36,11 @@ export default function Depiction({ pkg }: { pkg: Package }): JSX.Element {
                             {pkg.name}
                         </h1>
                     </div>
-                    <PackageScreenshots pkg={pkg} />
-                    <div className="prose lg:prose-lg my-8">
-                        <Mdx />
-                    </div>
+                    {!active ? (
+                        <DepictionBody pkg={pkg} />
+                    ) : (
+                        <DepictionChangelog pkg={pkg} />
+                    )}
                 </div>
             </div>
 
@@ -46,35 +55,14 @@ export default function Depiction({ pkg }: { pkg: Package }): JSX.Element {
                             {pkg.description}
                         </p>
                     </div>
-                    <div>
-                        <h3 className="font-semibold text-2xl">Informations</h3>
-                        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 max-w-sm mt-4 text-sm">
-                            <div className="flex flex-col px-4 py-2 border border-accent-3 xl:col-span-2 rounded-xl group transition-colors hover:bg-foreground">
-                                <p className="text-xs uppercase tracking-wide font-semibold text-accent-5 transition-colors group-hover:text-accent-3">
-                                    Name
-                                </p>
-                                <span className="text-accent-7 leading-relaxed transition-colors group-hover:text-background">
-                                    {pkg.name}
-                                </span>
-                            </div>
-                            <div className="flex flex-col px-4 py-2 border border-accent-3 rounded-xl group hover:bg-foreground transition-colors">
-                                <p className="text-xs uppercase tracking-wide font-semibold text-accent-5 transition-colors group-hover:text-accent-3">
-                                    Bundle ID
-                                </p>
-                                <span className="text-accent-7 leading-relaxed transition-colors group-hover:text-background break-all">
-                                    {pkg.bundle_id}
-                                </span>
-                            </div>
-                            <div className="flex flex-col px-4 py-2 border border-accent-3 rounded-xl group hover:bg-foreground transition-colors">
-                                <p className="text-xs uppercase tracking-wide font-semibold text-accent-5 transition-colors group-hover:text-accent-3">
-                                    Section
-                                </p>
-                                <span className="text-accent-7 leading-relaxed transition-colors group-hover:text-background">
-                                    {pkg.section}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                    <DepictionInfos pkg={pkg}>
+                        <button
+                            onClick={toggleView}
+                            className="px-4 py-4 border border-accent-3 hover:bg-black hover:text-white font-semibold rounded-xl w-full"
+                        >
+                            {!active ? "Version history" : "Description"}
+                        </button>
+                    </DepictionInfos>
                 </div>
             </div>
         </div>
